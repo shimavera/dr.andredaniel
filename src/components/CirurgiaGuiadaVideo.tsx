@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useCallback } from "react";
 
 const videos = [
   {
@@ -18,9 +18,44 @@ const videos = [
   },
 ];
 
+const SWIPE_THRESHOLD = 40;
+
 export default function CirurgiaGuiadaVideo() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const touchStartX = useRef<number | null>(null);
+  const n = videos.length;
+
+  const next = useCallback(() => {
+    setDirection(1);
+    setCurrent((c) => (c + 1) % n);
+  }, [n]);
+  const prev = useCallback(() => {
+    setDirection(-1);
+    setCurrent((c) => (c - 1 + n) % n);
+  }, [n]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(delta) > SWIPE_THRESHOLD) {
+      delta > 0 ? prev() : next();
+    }
+    touchStartX.current = null;
+  };
+
+  const slideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 60 : -60, opacity: 0, scale: 0.96 }),
+    center: { x: 0, opacity: 1, scale: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -60 : 60, opacity: 0, scale: 0.96 }),
+  };
+
+  const v = videos[current];
 
   return (
     <section id="cirurgia-guiada" className="bg-[#0F2840] py-20 md:py-24 px-4 md:px-6 relative overflow-hidden" ref={ref}>
@@ -62,43 +97,104 @@ export default function CirurgiaGuiadaVideo() {
           </p>
         </motion.div>
 
-        {/* Videos grid */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {videos.map((v, i) => (
+        {/* Videos carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative max-w-xl mx-auto"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          <div className="relative aspect-square">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={current}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                className="absolute inset-0"
+              >
+                <div className="relative w-full h-full rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/10">
+                  <video
+                    key={v.src}
+                    className="w-full h-full object-cover"
+                    src={v.src}
+                    poster={v.poster}
+                    controls
+                    preload="metadata"
+                    playsInline
+                  >
+                    <track kind="captions" />
+                    Seu navegador não suporta vídeo HTML5.
+                  </video>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Video caption */}
+          <AnimatePresence mode="wait">
             <motion.div
-              key={v.src}
-              initial={{ opacity: 0, y: 32 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 * i }}
-              className="group"
+              key={`caption-${current}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="mt-5 md:mt-6 px-1 text-center"
             >
-              <div className="relative rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/10 aspect-square">
-                <video
-                  className="w-full h-full object-cover"
-                  src={v.src}
-                  poster={v.poster}
-                  controls
-                  preload="metadata"
-                  playsInline
-                >
-                  <track kind="captions" />
-                  Seu navegador não suporta vídeo HTML5.
-                </video>
-              </div>
-              <div className="mt-5 px-1">
-                <h3
-                  className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight"
-                  style={{ fontFamily: "var(--font-playfair), serif" }}
-                >
-                  {v.titulo}
-                </h3>
-                <p className="text-white/60 text-sm md:text-base leading-relaxed">
-                  {v.desc}
-                </p>
-              </div>
+              <h3
+                className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
+                {v.titulo}
+              </h3>
+              <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-md mx-auto">
+                {v.desc}
+              </p>
             </motion.div>
-          ))}
-        </div>
+          </AnimatePresence>
+
+          {/* Arrows (desktop) */}
+          <button
+            onClick={prev}
+            aria-label="Vídeo anterior"
+            className="hidden md:flex absolute top-[calc(50%-60px)] -left-14 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:bg-white hover:text-[#173B5E] transition-all hover:scale-110"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={next}
+            aria-label="Próximo vídeo"
+            className="hidden md:flex absolute top-[calc(50%-60px)] -right-14 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:bg-white hover:text-[#173B5E] transition-all hover:scale-110"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-5">
+            {videos.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setDirection(i > current ? 1 : -1);
+                  setCurrent(i);
+                }}
+                aria-label={`Ir para vídeo ${i + 1}`}
+                className={`h-2 rounded-full transition-all ${
+                  i === current ? "w-8 bg-[#C49A15]" : "w-2 bg-white/25 hover:bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+        </motion.div>
 
         {/* Trust row */}
         <motion.div

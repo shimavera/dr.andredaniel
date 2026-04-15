@@ -107,58 +107,62 @@ export default function Technology() {
           </p>
         </motion.div>
 
-        {/* Tech grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Tech grid — compact 2 cols */}
+        <div className="grid grid-cols-2 gap-3 md:gap-4 lg:gap-5">
           {techs.map((t, i) => (
             <motion.div
               key={t.title}
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45, delay: 0.1 * i }}
-              className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-[#C49A15]/30 transition-all group"
+              transition={{ duration: 0.45, delay: 0.08 * i }}
+              className="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-5 lg:p-6 hover:bg-white/8 hover:border-[#C49A15]/30 transition-all group"
             >
-              <div className="text-[#C49A15] mb-5 group-hover:text-white transition-colors">
+              <div className="text-[#C49A15] mb-3 md:mb-4 group-hover:text-white transition-colors [&>svg]:w-6 [&>svg]:h-6 md:[&>svg]:w-7 md:[&>svg]:h-7">
                 {t.icon}
               </div>
               <h3
-                className="font-bold text-white mb-2"
+                className="font-bold text-white text-sm md:text-base mb-1.5 md:mb-2 leading-tight"
                 style={{ fontFamily: "var(--font-playfair), serif" }}
               >
                 {t.title}
               </h3>
-              <p className="text-white/55 text-sm leading-relaxed">{t.desc}</p>
+              <p className="text-white/55 text-xs md:text-sm leading-relaxed">{t.desc}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Clinic photo strip */}
+        {/* Clinic photos — larger */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.65 }}
-          className="mt-12 grid grid-cols-2 gap-4"
+          className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5"
         >
-          <div className="relative h-48 rounded-2xl overflow-hidden">
+          <div className="relative h-64 sm:h-72 md:h-96 rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="/clinica-sala.jpg"
               alt="Sala de tratamento — Dr. André Daniel"
               fill
               className="object-cover"
-              sizes="(max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
             />
-            <div className="absolute inset-0 bg-[#173B5E]/30" />
-            <span className="absolute bottom-3 left-4 text-white/80 text-xs font-medium tracking-wide">Sala de tratamento</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0F2840]/80 via-[#0F2840]/10 to-transparent" />
+            <span className="absolute bottom-4 left-5 text-white text-sm md:text-base font-semibold tracking-wide drop-shadow-lg">
+              Sala de tratamento
+            </span>
           </div>
-          <div className="relative h-48 rounded-2xl overflow-hidden">
+          <div className="relative h-64 sm:h-72 md:h-96 rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="/clinica-recepcao.jpg"
               alt="Recepção — Dr. André Daniel"
               fill
               className="object-cover"
-              sizes="(max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
             />
-            <div className="absolute inset-0 bg-[#173B5E]/30" />
-            <span className="absolute bottom-3 left-4 text-white/80 text-xs font-medium tracking-wide">Recepção</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0F2840]/80 via-[#0F2840]/10 to-transparent" />
+            <span className="absolute bottom-4 left-5 text-white text-sm md:text-base font-semibold tracking-wide drop-shadow-lg">
+              Recepção
+            </span>
           </div>
         </motion.div>
 
@@ -167,16 +171,38 @@ export default function Technology() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-16 border-t border-white/10 pt-12 text-center"
+          className="mt-16"
         >
-          <blockquote
-            className="text-2xl lg:text-3xl italic text-white/80 max-w-3xl mx-auto"
-            style={{ fontFamily: "var(--font-playfair), serif" }}
-          >
-            "Unindo ciência, tecnologia e cuidado humano — para resultados que
-            você pode ver antes de sentir."
-          </blockquote>
-          <p className="text-[#C49A15] text-sm font-medium mt-4">— Dr. André Daniel</p>
+          <div className="relative max-w-3xl mx-auto">
+            {/* Glow effect behind */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#C49A15]/20 via-[#C49A15]/10 to-[#C49A15]/20 rounded-3xl blur-xl" />
+            {/* Quote card */}
+            <div className="relative bg-gradient-to-br from-[#C49A15]/15 via-[#173B5E]/40 to-[#C49A15]/10 border border-[#C49A15]/30 rounded-3xl px-6 py-10 md:px-12 md:py-14 text-center backdrop-blur-sm">
+              {/* Decorative quote mark */}
+              <svg
+                className="absolute top-4 left-4 md:top-6 md:left-6 w-10 h-10 md:w-14 md:h-14 text-[#C49A15]/30"
+                fill="currentColor"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+              >
+                <path d="M9.333 8C6.389 8 4 10.389 4 13.333v2.667c0 2.944 2.389 5.333 5.333 5.333H12v5.333H4V24h5.333c-2.944 0-5.333-2.389-5.333-5.333V16C4 13.056 6.389 10.667 9.333 10.667H12V8H9.333zM22.667 8c-2.944 0-5.333 2.389-5.333 5.333v2.667c0 2.944 2.389 5.333 5.333 5.333h2.667v5.333h-8V24h5.333c-2.944 0-5.333-2.389-5.333-5.333V16c0-2.944 2.389-5.333 5.333-5.333h2.667V8h-2.667z" />
+              </svg>
+              <blockquote
+                className="relative text-xl md:text-3xl italic text-white leading-snug font-medium"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
+                &ldquo;Unindo ciência, tecnologia e cuidado humano — para resultados que
+                você pode <span className="text-[#C49A15]">ver antes de sentir</span>.&rdquo;
+              </blockquote>
+              <div className="flex items-center justify-center gap-3 mt-6">
+                <div className="h-px w-8 bg-[#C49A15]/50" />
+                <p className="text-[#C49A15] text-xs md:text-sm font-semibold tracking-widest uppercase">
+                  Dr. André Daniel
+                </p>
+                <div className="h-px w-8 bg-[#C49A15]/50" />
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

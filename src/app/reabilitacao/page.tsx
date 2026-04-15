@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import TopBar from "@/components/TopBar";
-import LPNav from "@/components/LPNav";
 import HeroReab from "@/components/reab/HeroReab";
 import PainReab from "@/components/reab/PainReab";
+import CirurgiaGuiadaVideo from "@/components/CirurgiaGuiadaVideo";
 import About from "@/components/About";
 import HowItWorksReab from "@/components/reab/HowItWorksReab";
-import Technology from "@/components/Technology";
+import CasosClinicos from "@/components/CasosClinicos";
 import Testimonials from "@/components/Testimonials";
 import FAQReab from "@/components/reab/FAQReab";
 import FinalCTA from "@/components/FinalCTA";

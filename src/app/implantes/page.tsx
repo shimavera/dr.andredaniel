@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import TopBar from "@/components/TopBar";
-import LPNav from "@/components/LPNav";
 import Hero from "@/components/Hero";
 import Pain from "@/components/Pain";
 import About from "@/components/About";
 import HowItWorks from "@/components/HowItWorks";
-import Services from "@/components/Services";
-import Technology from "@/components/Technology";
 import CirurgiaGuiadaVideo from "@/components/CirurgiaGuiadaVideo";
 import CasosClinicos from "@/components/CasosClinicos";
 import Testimonials from "@/components/Testimonials";
@@ -49,15 +46,12 @@ export default function ImplantesPage() {
       <JsonLdDentist />
       <JsonLdImplantes />
       <TopBar />
-      <LPNav />
       <main>
         <Hero />
         <Pain />
+        <CirurgiaGuiadaVideo />
         <About />
         <HowItWorks />
-        <Services />
-        <Technology />
-        <CirurgiaGuiadaVideo />
         <CasosClinicos />
         <Testimonials />
         <FAQ />

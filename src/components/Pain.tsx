@@ -71,24 +71,28 @@ export default function Pain() {
           </p>
         </motion.div>
 
-        {/* Pain cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-14">
+        {/* Pain cards — compact */}
+        <div className="grid md:grid-cols-3 gap-3 md:gap-5 mb-12 md:mb-14">
           {pains.map((p, i) => (
             <motion.div
               key={p.title}
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 * i }}
-              className="bg-white rounded-2xl p-8 border border-[#E2E8F0] shadow-sm hover:shadow-md transition-shadow"
+              transition={{ duration: 0.45, delay: 0.12 * i }}
+              className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 border border-[#E2E8F0] shadow-sm hover:shadow-md transition-shadow flex md:block items-start gap-4"
             >
-              <div className="mb-5">{p.icon}</div>
-              <h3
-                className="text-xl font-bold text-[#173B5E] mb-3"
-                style={{ fontFamily: "var(--font-playfair), serif" }}
-              >
-                {p.title}
-              </h3>
-              <p className="text-[#5A6A7E] text-sm leading-relaxed">{p.desc}</p>
+              <div className="shrink-0 md:mb-4 [&>svg]:w-7 [&>svg]:h-7 md:[&>svg]:w-9 md:[&>svg]:h-9">
+                {p.icon}
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3
+                  className="text-base md:text-lg font-bold text-[#173B5E] mb-1.5 md:mb-2 leading-tight"
+                  style={{ fontFamily: "var(--font-playfair), serif" }}
+                >
+                  {p.title}
+                </h3>
+                <p className="text-[#5A6A7E] text-xs md:text-sm leading-relaxed">{p.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>

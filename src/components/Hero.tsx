@@ -14,7 +14,7 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-[#173B5E] overflow-hidden flex flex-col justify-center pt-24 pb-12">
+    <section className="relative bg-[#173B5E] overflow-hidden flex flex-col justify-center pt-8 pb-14 md:pt-16 md:pb-20 lg:min-h-screen lg:pt-24">
       {/* Background texture */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -34,10 +34,35 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
+            {/* Mobile doctor avatar card */}
+            <div className="lg:hidden flex items-center gap-3 mb-5 bg-white/5 border border-white/10 rounded-2xl p-3 pr-5 backdrop-blur-sm">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-[#C49A15]/50">
+                <Image
+                  src="/dr-andre.jpg"
+                  alt="Dr. André Daniel"
+                  fill
+                  className="object-cover object-center"
+                  sizes="56px"
+                  priority
+                />
+              </div>
+              <div className="min-w-0">
+                <p
+                  className="text-white font-bold text-sm leading-tight"
+                  style={{ fontFamily: "var(--font-playfair), serif" }}
+                >
+                  Dr. André Daniel
+                </p>
+                <p className="text-[#C49A15] text-[11px] font-medium tracking-wider uppercase mt-0.5">
+                  Implantodontista · Membro ITI
+                </p>
+              </div>
+            </div>
+
             {/* Micro-label */}
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-3.5 py-1 md:px-4 md:py-1.5 mb-4 md:mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C49A15]" />
-              <span className="text-white/80 text-xs font-medium tracking-widest uppercase">
+              <span className="text-white/80 text-[10px] md:text-xs font-medium tracking-widest uppercase">
                 Implantes Dentários · Barra da Tijuca
               </span>
             </div>
