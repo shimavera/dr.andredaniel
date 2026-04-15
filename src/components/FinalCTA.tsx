@@ -69,7 +69,7 @@ export default function FinalCTA() {
             className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-3"
             style={{ fontFamily: "var(--font-playfair), serif" }}
           >
-            A primeira consulta é gratuita.
+            Agende sua avaliação.
             <br />Você entende tudo antes de decidir.
           </h2>
           <p

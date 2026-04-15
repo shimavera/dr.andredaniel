@@ -7,7 +7,7 @@ const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta+com+o+Dr.+Andr%C3%A9+Daniel.";
 
 const stats = [
-  { value: "+13 anos", label: "de experiência clínica" },
+  { value: "+20 anos", label: "de experiência clínica" },
   { value: "5 estrelas", label: "no Google — 30+ avaliações" },
   { value: "Membro ITI", label: "certificado internacional" },
 ];

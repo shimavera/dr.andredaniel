@@ -9,7 +9,7 @@ const items = [
   "Cirurgia guiada por planejamento 3D",
   "Carga imediata — dente no mesmo dia (quando indicado)",
   "Membro ITI — padrão científico internacional",
-  "Mais de 13 anos de experiência em implantodontia",
+  "Mais de 20 anos de experiência em implantodontia",
 ];
 
 export default function ImplantesDestaque() {
@@ -23,7 +23,7 @@ export default function ImplantesDestaque() {
     const interval = setInterval(() => {
       current += 1;
       setCount(current);
-      if (current >= 13) clearInterval(interval);
+      if (current >= 20) clearInterval(interval);
     }, 80);
     return () => clearInterval(interval);
   }, [inView]);

@@ -52,7 +52,7 @@ export default function WhatsAppFloat() {
             </div>
           </div>
           <p className="text-[#173B5E] text-sm font-bold leading-snug">
-            Avaliação gratuita
+            Agende sua avaliação
           </p>
           <p className="text-gray-500 text-xs mt-1 leading-snug">
             Tire suas dúvidas antes de decidir. Sem compromisso.

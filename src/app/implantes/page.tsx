@@ -17,7 +17,7 @@ import JsonLdImplantes from "@/components/JsonLdImplantes";
 export const metadata: Metadata = {
   title: "Implantes Dentários na Barra da Tijuca | Dr. André Daniel",
   description:
-    "Implante dentário definitivo com cirurgia guiada e planejamento 3D. Membro do ITI. Avaliação gratuita. Barra da Tijuca, Rio de Janeiro — agende pelo WhatsApp.",
+    "Implante dentário definitivo com cirurgia guiada e planejamento 3D. Membro do ITI. Barra da Tijuca, Rio de Janeiro — agende pelo WhatsApp.",
   keywords: [
     "implante dentário barra da tijuca",
     "implante dentário rio de janeiro",

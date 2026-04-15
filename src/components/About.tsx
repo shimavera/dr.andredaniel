@@ -23,7 +23,7 @@ export default function About() {
     const interval = setInterval(() => {
       current += 1;
       setYears(current);
-      if (current >= 13) clearInterval(interval);
+      if (current >= 20) clearInterval(interval);
     }, 90);
     return () => clearInterval(interval);
   }, [inView]);
@@ -75,7 +75,7 @@ export default function About() {
               className="text-4xl lg:text-5xl font-bold text-[#173B5E] leading-tight mb-6"
               style={{ fontFamily: "var(--font-playfair), serif" }}
             >
-              Mais de 13 anos transformando sorrisos no Rio de Janeiro
+              Mais de 20 anos transformando sorrisos no Rio de Janeiro
             </h2>
             <p className="text-[#5A6A7E] leading-relaxed mb-4">
               O Dr. André Daniel é graduado pela{" "}
@@ -95,7 +95,7 @@ export default function About() {
             </p>
             <p className="text-[#5A6A7E] leading-relaxed mb-8">
               O resultado? Pacientes que ficam{" "}
-              <strong className="text-[#173B5E]">13+ anos</strong> sob seus
+              <strong className="text-[#173B5E]">20+ anos</strong> sob seus
               cuidados — e indicam para toda a família.
             </p>
 

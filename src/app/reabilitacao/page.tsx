@@ -15,7 +15,7 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 export const metadata: Metadata = {
   title: "Reabilitação Oral Completa na Barra da Tijuca | Dr. André Daniel",
   description:
-    "Reabilitação oral com implantes fixos. All-on-4, All-on-6 e reabilitação parcial. Planejamento 3D completo. Membro do ITI. Avaliação gratuita. Barra da Tijuca, Rio de Janeiro.",
+    "Reabilitação oral com implantes fixos. All-on-4, All-on-6 e reabilitação parcial. Planejamento 3D completo. Membro do ITI. Barra da Tijuca, Rio de Janeiro.",
   keywords: [
     "reabilitação oral completa barra da tijuca",
     "all on four rio de janeiro",
