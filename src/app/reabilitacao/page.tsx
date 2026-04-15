@@ -42,13 +42,13 @@ export default function ReabilitacaoPage() {
   return (
     <>
       <TopBar />
-      <LPNav />
       <main>
         <HeroReab />
         <PainReab />
+        <CirurgiaGuiadaVideo />
         <About />
         <HowItWorksReab />
-        <Technology />
+        <CasosClinicos />
         <Testimonials />
         <FAQReab />
         <FinalCTA />
