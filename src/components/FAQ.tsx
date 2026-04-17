@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+tenho+uma+d%C3%BAvida+sobre+implantes+dent%C3%A1rios.";
@@ -131,6 +132,7 @@ export default function FAQ() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={pushWorkingLead}
             className="inline-flex items-center gap-2.5 bg-[#173B5E] hover:bg-[#0F2840] text-white font-semibold px-7 py-3.5 rounded-full transition-colors"
           >
             Tirar minha dúvida no WhatsApp →

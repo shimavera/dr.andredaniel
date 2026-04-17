@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o+para+Reabilita%C3%A7%C3%A3o+Oral+com+o+Dr.+Andr%C3%A9+Daniel.";
@@ -98,6 +99,7 @@ export default function HowItWorksReab() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={pushWorkingLead}
             className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold px-8 py-4 rounded-full transition-all hover:scale-105"
           >
             Começar pela avaliação →

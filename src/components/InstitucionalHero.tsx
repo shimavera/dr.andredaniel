@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta+com+o+Dr.+Andr%C3%A9+Daniel.";
@@ -71,6 +72,7 @@ export default function InstitucionalHero() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={pushWorkingLead}
                 className="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold px-6 py-3.5 md:px-7 md:py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-green-900/30 text-sm md:text-base"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta+com+o+Dr.+Andr%C3%A9+Daniel.";
@@ -88,6 +89,7 @@ export default function FinalCTA() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={pushWorkingLead}
             className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1DA851] text-white font-bold text-lg px-10 py-5 rounded-full transition-all hover:scale-105 shadow-xl shadow-green-900/30 mb-10"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

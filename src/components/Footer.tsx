@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta+com+o+Dr.+Andr%C3%A9+Daniel.";
@@ -70,6 +73,7 @@ export default function Footer() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={pushWorkingLead}
                 className="flex items-start gap-3 text-white/60 hover:text-white transition-colors group"
               >
                 <svg

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta+com+o+Dr.+Andr%C3%A9+Daniel.";
@@ -67,7 +68,7 @@ export default function WhatsAppFloat() {
         href={WA_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => setShowBalloon(false)}
+        onClick={() => { setShowBalloon(false); pushWorkingLead(); }}
         className={`w-14 h-14 bg-[#25D366] hover:bg-[#1DA851] rounded-full flex items-center justify-center shadow-xl shadow-green-900/40 hover:scale-110 transition-all shrink-0 ${
           shake ? "animate-[wiggle_0.6s_ease-in-out]" : ""
         }`}

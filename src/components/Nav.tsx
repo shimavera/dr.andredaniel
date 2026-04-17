@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const links = [
   { label: "Sobre o Dr.", href: "#sobre" },
@@ -86,6 +87,7 @@ export default function Nav() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={pushWorkingLead}
           className="hidden lg:flex items-center gap-2 bg-[#25D366] hover:bg-[#1DA851] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -100,6 +102,7 @@ export default function Nav() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={pushWorkingLead}
             className="flex items-center justify-center w-9 h-9 bg-[#25D366] hover:bg-[#1DA851] rounded-full transition-colors shadow-md shadow-green-900/30"
             aria-label="Agendar no WhatsApp"
           >
@@ -150,6 +153,7 @@ export default function Nav() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={pushWorkingLead}
             className="mt-4 flex items-center justify-center gap-2 bg-[#25D366] text-white text-sm font-semibold px-5 py-3 rounded-full"
           >
             Agendar Consulta

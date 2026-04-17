@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const pains = [
   {
@@ -118,6 +119,7 @@ export default function Pain() {
               href="https://wa.me/5521985154051?text=Ol%C3%A1%2C+quero+saber+se+sou+candidato+a+implante+dent%C3%A1rio."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={pushWorkingLead}
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold px-7 py-3.5 rounded-full transition-all hover:scale-105 text-sm"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

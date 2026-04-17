@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta+sobre+implantes+com+o+Dr.+Andr%C3%A9+Daniel.";
@@ -32,6 +33,7 @@ export default function LPNav() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={pushWorkingLead}
           className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-all hover:scale-105"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

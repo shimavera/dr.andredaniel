@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+gostaria+de+saber+se+sou+candidato+a+implante+dent%C3%A1rio.";
@@ -157,6 +158,7 @@ export default function Services() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={pushWorkingLead}
             className="inline-flex items-center gap-2.5 bg-[#173B5E] hover:bg-[#0F2840] text-white font-semibold px-8 py-4 rounded-full transition-colors"
           >
             Quero saber se sou candidato →

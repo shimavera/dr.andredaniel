@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { pushWorkingLead } from "@/lib/gtm";
 
 const WA_LINK =
   "https://wa.me/5521985154051?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta+com+o+Dr.+Andr%C3%A9+Daniel.";
@@ -71,6 +72,7 @@ export default function Contato() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={pushWorkingLead}
               className="group bg-white rounded-2xl border border-[#E2E8F0] p-6 md:p-7 hover:border-[#C49A15]/60 hover:shadow-md transition-all flex gap-5 items-start"
             >
               <div className="w-14 h-14 rounded-full bg-[#173B5E] flex items-center justify-center shrink-0 group-hover:bg-[#0F2840] transition-colors">
@@ -103,6 +105,7 @@ export default function Contato() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={pushWorkingLead}
               className="group bg-white rounded-2xl border border-[#E2E8F0] p-6 md:p-7 hover:border-[#25D366]/60 hover:shadow-md transition-all flex gap-5 items-start"
             >
               <div className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shrink-0 group-hover:bg-[#1DA851] transition-colors">
@@ -128,6 +131,7 @@ export default function Contato() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={pushWorkingLead}
               className="mt-1 bg-[#173B5E] hover:bg-[#0F2840] text-white font-semibold rounded-2xl px-6 py-5 flex items-center justify-center gap-3 transition-all hover:scale-[1.01] shadow-lg shadow-[#173B5E]/20"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
+import { pushWorkingLead } from "@/lib/gtm";
 import Image from "next/image";
 
 const WA_LINK =
@@ -231,6 +232,7 @@ export default function CasosClinicos() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={pushWorkingLead}
             className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold px-7 md:px-8 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-green-900/20 text-sm md:text-base"
           >
             Quero um resultado como esses →
